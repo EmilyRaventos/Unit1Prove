@@ -41,6 +41,7 @@ namespace prove1
                     board[intChoice] = player;
                     DisplayBoard(board);
                                     
+                    // checkWin(board, player, isWinner);
                     // CheckWin()
                     if (
                         (board[0] == player && board[1] == player && board[2] == player)
@@ -84,6 +85,7 @@ namespace prove1
                     guessAgain = Console.ReadLine();
                 }
 
+                // If user says no, they forfeit
                 if (guessAgain == "no")
                 {
                     Console.WriteLine($"{player} forfeited the game.");
@@ -101,6 +103,16 @@ namespace prove1
             }
         }
 
+        // Function to display the board
+        static void DisplayBoard(List<string> board)
+        {
+            Console.WriteLine($"{board[0]} | {board[1]} | {board[2]}");
+            Console.WriteLine("- + - + -");
+            Console.WriteLine($"{board[3]} | {board[4]} | {board[5]}");
+            Console.WriteLine("- + - + -");
+            Console.WriteLine($"{board[6]} | {board[7]} | {board[8]}");
+        }
+
         // // Function to check if they tied
         static bool checkTie(List<string> board, bool isTie, bool isWinner)
         {
@@ -114,7 +126,6 @@ namespace prove1
                 && (board[6] == "X" || board[6] == "O")
                 && (board[7] == "X" || board[7] == "O")
                 && (board[8] == "X" || board[8] == "O")
-                && (isWinner == false)
                 )
                 {
                     isTie = true;
@@ -156,16 +167,6 @@ namespace prove1
             }
 
             return player;
-        }
-
-        // Function to display the board
-        static void DisplayBoard(List<string> board)
-        {
-            Console.WriteLine($"{board[0]} | {board[1]} | {board[2]}");
-            Console.WriteLine("- + - + -");
-            Console.WriteLine($"{board[3]} | {board[4]} | {board[5]}");
-            Console.WriteLine("- + - + -");
-            Console.WriteLine($"{board[6]} | {board[7]} | {board[8]}");
         }
     }
 
